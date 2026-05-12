@@ -1,0 +1,9 @@
+C:\visual Studio projects\SistemaReservaciones\SistemaReservaciones\obj\Debug\SistemaReservaciones.csproj.AssemblyReference.cache
+C:\visual Studio projects\SistemaReservaciones\SistemaReservaciones\obj\Debug\SistemaReservaciones.frmLogin.resources
+C:\visual Studio projects\SistemaReservaciones\SistemaReservaciones\obj\Debug\SistemaReservaciones.frmPrincipal.resources
+C:\visual Studio projects\SistemaReservaciones\SistemaReservaciones\obj\Debug\SistemaReservaciones.Properties.Resources.resources
+C:\visual Studio projects\SistemaReservaciones\SistemaReservaciones\obj\Debug\SistemaReservaciones.csproj.GenerateResource.cache
+C:\visual Studio projects\SistemaReservaciones\SistemaReservaciones\obj\Debug\SistemaReservaciones.csproj.CoreCompileInputs.cache
+C:\visual Studio projects\SistemaReservaciones\SistemaReservaciones\obj\Debug\SistemaReservaciones.frmCliente.resources
+C:\visual Studio projects\SistemaReservaciones\SistemaReservaciones\obj\Debug\SistemaReservaciones.frmCanchas.resources
+C:\visual Studio projects\SistemaReservaciones\SistemaReservaciones\obj\Debug\SistemaReservaciones.frmTipoCancha.resources
