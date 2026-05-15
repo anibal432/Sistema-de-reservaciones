@@ -1,214 +1,186 @@
-﻿namespace SistemaReservaciones
+namespace SistemaReservaciones
 {
     partial class frmCliente
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
-            {
                 components.Dispose();
-            }
+
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            this.dgvClientes = new System.Windows.Forms.DataGridView();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.lblApellido = new System.Windows.Forms.Label();
+            this.lblTelefono = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.lblDPI = new System.Windows.Forms.Label();
+
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.lblNombre = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.txtDPI = new System.Windows.Forms.TextBox();
+
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+
+            this.dgvClientes = new System.Windows.Forms.DataGridView();
+
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgvClientes
-            // 
-            this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClientes.Location = new System.Drawing.Point(348, 3);
-            this.dgvClientes.Name = "dgvClientes";
-            this.dgvClientes.RowHeadersWidth = 51;
-            this.dgvClientes.RowTemplate.Height = 24;
-            this.dgvClientes.Size = new System.Drawing.Size(800, 435);
-            this.dgvClientes.TabIndex = 0;
-            this.dgvClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellClick);
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(105, 39);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(221, 22);
-            this.txtNombre.TabIndex = 1;
-            // 
-            // txtApellido
-            // 
-            this.txtApellido.Location = new System.Drawing.Point(105, 103);
-            this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(221, 22);
-            this.txtApellido.TabIndex = 2;
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.Location = new System.Drawing.Point(105, 153);
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(221, 22);
-            this.txtTelefono.TabIndex = 3;
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(105, 195);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(221, 22);
-            this.txtEmail.TabIndex = 4;
-            // 
+
             // lblNombre
-            // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(11, 39);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(59, 16);
-            this.lblNombre.TabIndex = 5;
+            this.lblNombre.Location = new System.Drawing.Point(15, 20);
             this.lblNombre.Text = "Nombre:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 103);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 16);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Apellido:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 153);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 16);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Telefono:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 195);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 16);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Email";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(11, 251);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(32, 16);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "DPI:";
-            // 
+
+            // txtNombre
+            this.txtNombre.Location = new System.Drawing.Point(130, 17);
+            this.txtNombre.Size = new System.Drawing.Size(200, 22);
+
+            // lblApellido
+            this.lblApellido.AutoSize = true;
+            this.lblApellido.Location = new System.Drawing.Point(15, 58);
+            this.lblApellido.Text = "Apellido:";
+
+            // txtApellido
+            this.txtApellido.Location = new System.Drawing.Point(130, 55);
+            this.txtApellido.Size = new System.Drawing.Size(200, 22);
+
+            // lblTelefono
+            this.lblTelefono.AutoSize = true;
+            this.lblTelefono.Location = new System.Drawing.Point(15, 96);
+            this.lblTelefono.Text = "Teléfono:";
+
+            // txtTelefono
+            this.txtTelefono.Location = new System.Drawing.Point(130, 93);
+            this.txtTelefono.Size = new System.Drawing.Size(200, 22);
+
+            // lblEmail
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Location = new System.Drawing.Point(15, 134);
+            this.lblEmail.Text = "Email:";
+
+            // txtEmail
+            this.txtEmail.Location = new System.Drawing.Point(130, 131);
+            this.txtEmail.Size = new System.Drawing.Size(200, 22);
+
+            // lblDPI
+            this.lblDPI.AutoSize = true;
+            this.lblDPI.Location = new System.Drawing.Point(15, 172);
+            this.lblDPI.Text = "DPI:";
+
             // txtDPI
-            // 
-            this.txtDPI.Location = new System.Drawing.Point(105, 251);
-            this.txtDPI.Name = "txtDPI";
-            this.txtDPI.Size = new System.Drawing.Size(221, 22);
-            this.txtDPI.TabIndex = 10;
-            // 
+            this.txtDPI.Location = new System.Drawing.Point(130, 169);
+            this.txtDPI.Size = new System.Drawing.Size(200, 22);
+
             // btnAgregar
-            // 
-            this.btnAgregar.Location = new System.Drawing.Point(28, 306);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregar.TabIndex = 11;
+            this.btnAgregar.Location = new System.Drawing.Point(15, 220);
+            this.btnAgregar.Size = new System.Drawing.Size(90, 28);
             this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnAgregar.ForeColor = System.Drawing.Color.White;
+            this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Location = new System.Drawing.Point(131, 306);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
-            this.btnEliminar.TabIndex = 12;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
+
             // btnActualizar
-            // 
-            this.btnActualizar.Location = new System.Drawing.Point(238, 306);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(75, 23);
-            this.btnActualizar.TabIndex = 13;
+            this.btnActualizar.Location = new System.Drawing.Point(120, 220);
+            this.btnActualizar.Size = new System.Drawing.Size(90, 28);
             this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnActualizar.ForeColor = System.Drawing.Color.White;
+            this.btnActualizar.UseVisualStyleBackColor = false;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
-            // 
+
+            // btnEliminar
+            this.btnEliminar.Location = new System.Drawing.Point(225, 220);
+            this.btnEliminar.Size = new System.Drawing.Size(90, 28);
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.BackColor = System.Drawing.Color.Crimson;
+            this.btnEliminar.ForeColor = System.Drawing.Color.White;
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+
+            // dgvClientes
+            this.dgvClientes.ColumnHeadersHeightSizeMode =
+                System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+
+            this.dgvClientes.Location = new System.Drawing.Point(370, 10);
+            this.dgvClientes.Size = new System.Drawing.Size(700, 400);
+
+            this.dgvClientes.ReadOnly = true;
+            this.dgvClientes.AllowUserToAddRows = false;
+            this.dgvClientes.AllowUserToDeleteRows = false;
+
+            this.dgvClientes.SelectionMode =
+                System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+
+            this.dgvClientes.RowTemplate.Height = 24;
+
+            this.dgvClientes.CellClick +=
+                new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellClick);
+
             // frmCliente
-            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1160, 450);
+
+            this.ClientSize = new System.Drawing.Size(1100, 450);
+
+            this.Controls.Add(this.lblNombre);
+            this.Controls.Add(this.txtNombre);
+
+            this.Controls.Add(this.lblApellido);
+            this.Controls.Add(this.txtApellido);
+
+            this.Controls.Add(this.lblTelefono);
+            this.Controls.Add(this.txtTelefono);
+
+            this.Controls.Add(this.lblEmail);
+            this.Controls.Add(this.txtEmail);
+
+            this.Controls.Add(this.lblDPI);
+            this.Controls.Add(this.txtDPI);
+
+            this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.txtDPI);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblNombre);
-            this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.txtTelefono);
-            this.Controls.Add(this.txtApellido);
-            this.Controls.Add(this.txtNombre);
+
             this.Controls.Add(this.dgvClientes);
+
             this.Name = "frmCliente";
-            this.Text = "frmCliente";
+            this.Text = "Clientes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+
             this.Load += new System.EventHandler(this.frmCliente_Load);
+
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
+
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
-        #endregion
+        private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.Label lblApellido;
+        private System.Windows.Forms.Label lblTelefono;
+        private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.Label lblDPI;
 
-        private System.Windows.Forms.DataGridView dgvClientes;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtDPI;
+
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnActualizar;
+        private System.Windows.Forms.Button btnEliminar;
+
+        private System.Windows.Forms.DataGridView dgvClientes;
     }
 }

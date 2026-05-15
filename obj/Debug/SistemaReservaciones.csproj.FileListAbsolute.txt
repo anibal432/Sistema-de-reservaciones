@@ -7,3 +7,17 @@ C:\visual Studio projects\SistemaReservaciones\SistemaReservaciones\obj\Debug\Si
 C:\visual Studio projects\SistemaReservaciones\SistemaReservaciones\obj\Debug\SistemaReservaciones.frmCliente.resources
 C:\visual Studio projects\SistemaReservaciones\SistemaReservaciones\obj\Debug\SistemaReservaciones.frmCanchas.resources
 C:\visual Studio projects\SistemaReservaciones\SistemaReservaciones\obj\Debug\SistemaReservaciones.frmTipoCancha.resources
+C:\Users\HP\Downloads\SistemaReservaciones\bin\Debug\SistemaReservaciones.exe.config
+C:\Users\HP\Downloads\SistemaReservaciones\bin\Debug\SistemaReservaciones.exe
+C:\Users\HP\Downloads\SistemaReservaciones\bin\Debug\SistemaReservaciones.pdb
+C:\Users\HP\Downloads\SistemaReservaciones\obj\Debug\SistemaReservaciones.csproj.AssemblyReference.cache
+C:\Users\HP\Downloads\SistemaReservaciones\obj\Debug\SistemaReservaciones.csproj.CoreCompileInputs.cache
+C:\Users\HP\Downloads\SistemaReservaciones\obj\Debug\SistemaReservaciones.exe
+C:\Users\HP\Downloads\SistemaReservaciones\obj\Debug\SistemaReservaciones.pdb
+C:\Users\HP\Documents\SistemaReservaciones\bin\Debug\SistemaReservaciones.exe.config
+C:\Users\HP\Documents\SistemaReservaciones\bin\Debug\SistemaReservaciones.exe
+C:\Users\HP\Documents\SistemaReservaciones\bin\Debug\SistemaReservaciones.pdb
+C:\Users\HP\Documents\SistemaReservaciones\obj\Debug\SistemaReservaciones.csproj.AssemblyReference.cache
+C:\Users\HP\Documents\SistemaReservaciones\obj\Debug\SistemaReservaciones.csproj.CoreCompileInputs.cache
+C:\Users\HP\Documents\SistemaReservaciones\obj\Debug\SistemaReservaciones.exe
+C:\Users\HP\Documents\SistemaReservaciones\obj\Debug\SistemaReservaciones.pdb

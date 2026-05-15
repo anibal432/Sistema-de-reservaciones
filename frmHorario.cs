@@ -5,46 +5,48 @@ using System.Windows.Forms;
 
 namespace SistemaReservaciones
 {
-    public partial class frmTipoCancha : Form
+    public partial class frmHorario : Form
     {
         int idSeleccionado = 0;
 
-        public frmTipoCancha() { InitializeComponent(); }
+        public frmHorario() { InitializeComponent(); }
 
-        private void frmTipoCancha_Load(object sender, EventArgs e)
+        private void frmHorario_Load(object sender, EventArgs e)
         {
-            CargarTipos();
+            CargarHorarios();
         }
 
-        void CargarTipos()
+        void CargarHorarios()
         {
             using (SqlConnection cn = Conexion.ObtenerConexion())
             {
                 cn.Open();
-                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM TipoCancha", cn);
+                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Horario", cn);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
-                dgvTipoCancha.DataSource = dt;
+                dgvHorarios.DataSource = dt;
             }
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtNombre.Text))
+            if (!TimeSpan.TryParse(txtHoraInicio.Text, out TimeSpan hi) ||
+                !TimeSpan.TryParse(txtHoraFin.Text, out TimeSpan hf))
             {
-                MessageBox.Show("Ingrese el nombre.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Ingrese horas válidas (HH:mm).", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             using (SqlConnection cn = Conexion.ObtenerConexion())
             {
                 cn.Open();
                 SqlCommand cmd = new SqlCommand(
-                    "INSERT INTO TipoCancha (Nombre, Descripcion) VALUES(@n, @d)", cn);
-                cmd.Parameters.AddWithValue("@n", txtNombre.Text.Trim());
-                cmd.Parameters.AddWithValue("@d", txtDescripcion.Text.Trim());
+                    "INSERT INTO Horario (HoraInicio, HoraFin, Descripcion) VALUES (@hi, @hf, @d)", cn);
+                cmd.Parameters.AddWithValue("@hi", hi);
+                cmd.Parameters.AddWithValue("@hf", hf);
+                cmd.Parameters.AddWithValue("@d",  txtDescripcion.Text.Trim());
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Tipo de cancha agregado.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                CargarTipos();
+                MessageBox.Show("Horario agregado.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CargarHorarios();
                 Limpiar();
             }
         }
@@ -53,20 +55,27 @@ namespace SistemaReservaciones
         {
             if (idSeleccionado == 0)
             {
-                MessageBox.Show("Seleccione un registro.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Seleccione un horario.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (!TimeSpan.TryParse(txtHoraInicio.Text, out TimeSpan hi) ||
+                !TimeSpan.TryParse(txtHoraFin.Text, out TimeSpan hf))
+            {
+                MessageBox.Show("Ingrese horas válidas (HH:mm).", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             using (SqlConnection cn = Conexion.ObtenerConexion())
             {
                 cn.Open();
                 SqlCommand cmd = new SqlCommand(
-                    "UPDATE TipoCancha SET Nombre=@n, Descripcion=@d WHERE IdTipoCancha=@id", cn);
-                cmd.Parameters.AddWithValue("@n",  txtNombre.Text.Trim());
+                    "UPDATE Horario SET HoraInicio=@hi, HoraFin=@hf, Descripcion=@d WHERE IdHorario=@id", cn);
+                cmd.Parameters.AddWithValue("@hi", hi);
+                cmd.Parameters.AddWithValue("@hf", hf);
                 cmd.Parameters.AddWithValue("@d",  txtDescripcion.Text.Trim());
                 cmd.Parameters.AddWithValue("@id", idSeleccionado);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Actualizado correctamente.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                CargarTipos();
+                MessageBox.Show("Horario actualizado.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CargarHorarios();
                 Limpiar();
             }
         }
@@ -75,21 +84,21 @@ namespace SistemaReservaciones
         {
             if (idSeleccionado == 0)
             {
-                MessageBox.Show("Seleccione un registro.", "Aviso",
+                MessageBox.Show("Seleccione un horario.", "Aviso",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (MessageBox.Show("¿Eliminar este tipo de cancha?", "Confirmar",
+            if (MessageBox.Show("¿Eliminar este horario?", "Confirmar",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 using (SqlConnection cn = Conexion.ObtenerConexion())
                 {
                     cn.Open();
 
-                    // VALIDAR SI EL TIPO DE CANCHA ESTÁ EN USO
+                    // VALIDAR SI EL HORARIO TIENE RESERVAS
                     SqlCommand validar = new SqlCommand(
-                        "SELECT COUNT(*) FROM Cancha WHERE IdTipoCancha=@id", cn);
+                        "SELECT COUNT(*) FROM Reserva WHERE IdHorario=@id", cn);
 
                     validar.Parameters.AddWithValue("@id", idSeleccionado);
 
@@ -98,7 +107,7 @@ namespace SistemaReservaciones
                     if (existe > 0)
                     {
                         MessageBox.Show(
-                            "No se puede eliminar este tipo de cancha porque hay canchas registradas con este tipo.",
+                            "No se puede eliminar este horario porque tiene reservas registradas.",
                             "Error",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Warning);
@@ -106,39 +115,41 @@ namespace SistemaReservaciones
                         return;
                     }
 
-                    // ELIMINAR SI NO ESTÁ RELACIONADO
+                    // ELIMINAR SI NO TIENE RELACIÓN
                     SqlCommand cmd = new SqlCommand(
-                        "DELETE FROM TipoCancha WHERE IdTipoCancha=@id", cn);
+                        "DELETE FROM Horario WHERE IdHorario=@id", cn);
 
                     cmd.Parameters.AddWithValue("@id", idSeleccionado);
 
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show(
-                        "Tipo de cancha eliminado.",
+                        "Horario eliminado.",
                         "OK",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
 
-                    CargarTipos();
+                    CargarHorarios();
                     Limpiar();
                 }
             }
         }
 
-        private void dgvTipoCancha_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvHorarios_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
-            DataGridViewRow fila = dgvTipoCancha.Rows[e.RowIndex];
-            idSeleccionado       = Convert.ToInt32(fila.Cells["IdTipoCancha"].Value);
-            txtNombre.Text       = fila.Cells["Nombre"].Value.ToString();
+            DataGridViewRow fila = dgvHorarios.Rows[e.RowIndex];
+            idSeleccionado       = Convert.ToInt32(fila.Cells["IdHorario"].Value);
+            txtHoraInicio.Text   = fila.Cells["HoraInicio"].Value.ToString();
+            txtHoraFin.Text      = fila.Cells["HoraFin"].Value.ToString();
             txtDescripcion.Text  = fila.Cells["Descripcion"].Value?.ToString() ?? "";
         }
 
         void Limpiar()
         {
             idSeleccionado = 0;
-            txtNombre.Clear();
+            txtHoraInicio.Clear();
+            txtHoraFin.Clear();
             txtDescripcion.Clear();
         }
     }

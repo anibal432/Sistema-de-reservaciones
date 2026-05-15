@@ -1,94 +1,81 @@
-﻿namespace SistemaReservaciones
+namespace SistemaReservaciones
 {
     partial class frmLogin
     {
-        /// <summary>
-        /// Variable del diseñador necesaria.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Limpiar los recursos que se estén usando.
-        /// </summary>
-        /// <param name="disposing">true si los recursos administrados se deben desechar; false en caso contrario.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
+            if (disposing && (components != null)) components.Dispose();
             base.Dispose(disposing);
         }
 
-        #region Código generado por el Diseñador de Windows Forms
-
-        /// <summary>
-        /// Método necesario para admitir el Diseñador. No se puede modificar
-        /// el contenido de este método con el editor de código.
-        /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtUsuario = new System.Windows.Forms.TextBox();
-            this.txtContrasena = new System.Windows.Forms.TextBox();
+            this.lblTitulo      = new System.Windows.Forms.Label();
+            this.lblUsuario     = new System.Windows.Forms.Label();
+            this.lblContrasena  = new System.Windows.Forms.Label();
+            this.txtUsuario     = new System.Windows.Forms.TextBox();
+            this.txtContrasena  = new System.Windows.Forms.TextBox();
+            this.btnIngresar    = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(378, 143);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Usuario ";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(610, 143);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 16);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Contraseña";
-            // 
+
+            // lblTitulo
+            this.lblTitulo.AutoSize  = true;
+            this.lblTitulo.Font      = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold);
+            this.lblTitulo.Location  = new System.Drawing.Point(130, 40);
+            this.lblTitulo.Text      = "Sistema de Reservación de Canchas";
+
+            // lblUsuario
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Location = new System.Drawing.Point(160, 130);
+            this.lblUsuario.Text     = "Usuario:";
+
             // txtUsuario
-            // 
-            this.txtUsuario.Location = new System.Drawing.Point(358, 196);
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(100, 22);
-            this.txtUsuario.TabIndex = 2;
-            // 
+            this.txtUsuario.Location = new System.Drawing.Point(250, 127);
+            this.txtUsuario.Size     = new System.Drawing.Size(200, 22);
+
+            // lblContrasena
+            this.lblContrasena.AutoSize = true;
+            this.lblContrasena.Location = new System.Drawing.Point(160, 175);
+            this.lblContrasena.Text     = "Contraseña:";
+
             // txtContrasena
-            // 
-            this.txtContrasena.Location = new System.Drawing.Point(597, 196);
-            this.txtContrasena.Name = "txtContrasena";
+            this.txtContrasena.Location     = new System.Drawing.Point(250, 172);
+            this.txtContrasena.Size         = new System.Drawing.Size(200, 22);
             this.txtContrasena.PasswordChar = '*';
-            this.txtContrasena.Size = new System.Drawing.Size(100, 22);
-            this.txtContrasena.TabIndex = 3;
-            // 
+
+            // btnIngresar
+            this.btnIngresar.Location = new System.Drawing.Point(250, 220);
+            this.btnIngresar.Size     = new System.Drawing.Size(200, 35);
+            this.btnIngresar.Text     = "Ingresar";
+            this.btnIngresar.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnIngresar.ForeColor = System.Drawing.Color.White;
+            this.btnIngresar.Font     = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.btnIngresar.Click   += new System.EventHandler(this.btnIngresar_Click);
+
             // frmLogin
-            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1385, 619);
-            this.Controls.Add(this.txtContrasena);
+            this.AutoScaleMode       = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize          = new System.Drawing.Size(660, 320);
+            this.Controls.Add(this.lblTitulo);
+            this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.txtUsuario);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Name = "frmLogin";
-            this.Text = "Form1";
+            this.Controls.Add(this.lblContrasena);
+            this.Controls.Add(this.txtContrasena);
+            this.Controls.Add(this.btnIngresar);
+            this.Name            = "frmLogin";
+            this.Text            = "Login - Sistema Canchas";
+            this.StartPosition   = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
-        #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label   lblTitulo;
+        private System.Windows.Forms.Label   lblUsuario;
+        private System.Windows.Forms.Label   lblContrasena;
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.TextBox txtContrasena;
+        private System.Windows.Forms.Button  btnIngresar;
     }
 }
-
