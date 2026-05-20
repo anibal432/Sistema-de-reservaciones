@@ -1,0 +1,691 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition"
+        xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+	<AutoRefresh>0</AutoRefresh>
+	<DataSources>
+		<DataSource Name="DataSetReservas">
+			<ConnectionProperties>
+				<DataProvider>System.Data.DataSet</DataProvider>
+				<ConnectString>/* Local Connection */</ConnectString>
+			</ConnectionProperties>
+		</DataSource>
+	</DataSources>
+	<DataSets>
+		<DataSet Name="DataSet1">
+			<Query>
+				<DataSourceName>DataSetReservas</DataSourceName>
+				<CommandText>/* Local Query */</CommandText>
+			</Query>
+			<Fields>
+				<Field Name="Cliente">
+					<DataField>Cliente</DataField>
+					<rd:TypeName>System.String</rd:TypeName>
+				</Field>
+				<Field Name="Cancha">
+					<DataField>Cancha</DataField>
+					<rd:TypeName>System.String</rd:TypeName>
+				</Field>
+				<Field Name="HoraInicio">
+					<DataField>HoraInicio</DataField>
+					<rd:TypeName>System.TimeSpan</rd:TypeName>
+				</Field>
+				<Field Name="HoraFin">
+					<DataField>HoraFin</DataField>
+					<rd:TypeName>System.TimeSpan</rd:TypeName>
+				</Field>
+				<Field Name="FechaReserva">
+					<DataField>FechaReserva</DataField>
+					<rd:TypeName>System.DateTime</rd:TypeName>
+				</Field>
+				<Field Name="Monto">
+					<DataField>Monto</DataField>
+					<rd:TypeName>System.Decimal</rd:TypeName>
+				</Field>
+				<Field Name="Estado">
+					<DataField>Estado</DataField>
+					<rd:TypeName>System.String</rd:TypeName>
+				</Field>
+			</Fields>
+		</DataSet>
+	</DataSets>
+	<Body>
+		<ReportItems>
+
+			<!-- TÍTULO -->
+			<Textbox Name="Titulo">
+				<CanGrow>true</CanGrow>
+				<Paragraphs>
+					<Paragraph>
+						<TextRuns>
+							<TextRun>
+								<Value>Reporte de Reservas</Value>
+								<Style>
+									<FontFamily>Segoe UI</FontFamily>
+									<FontSize>18pt</FontSize>
+									<FontWeight>Bold</FontWeight>
+									<Color>#2C3E50</Color>
+								</Style>
+							</TextRun>
+						</TextRuns>
+						<Style>
+							<TextAlign>Center</TextAlign>
+						</Style>
+					</Paragraph>
+				</Paragraphs>
+				<Top>0.5cm</Top>
+				<Left>0cm</Left>
+				<Height>1cm</Height>
+				<Width>21cm</Width>
+				<Style>
+					<Border>
+						<Style>None</Style>
+					</Border>
+					<BackgroundColor>#EBF5FB</BackgroundColor>
+					<PaddingTop>5pt</PaddingTop>
+					<PaddingBottom>5pt</PaddingBottom>
+				</Style>
+			</Textbox>
+
+			<!-- TABLA -->
+			<Tablix Name="TablixReservas">
+				<TablixBody>
+					<TablixColumns>
+						<TablixColumn>
+							<Width>4cm</Width>
+						</TablixColumn>
+						<TablixColumn>
+							<Width>3.5cm</Width>
+						</TablixColumn>
+						<TablixColumn>
+							<Width>2.5cm</Width>
+						</TablixColumn>
+						<TablixColumn>
+							<Width>2.5cm</Width>
+						</TablixColumn>
+						<TablixColumn>
+							<Width>3cm</Width>
+						</TablixColumn>
+						<TablixColumn>
+							<Width>2.5cm</Width>
+						</TablixColumn>
+						<TablixColumn>
+							<Width>3cm</Width>
+						</TablixColumn>
+					</TablixColumns>
+					<TablixRows>
+
+						<!-- ENCABEZADOS -->
+						<TablixRow>
+							<Height>0.7cm</Height>
+							<TablixCells>
+
+								<TablixCell>
+									<CellContents>
+										<Textbox Name="H_Cliente">
+											<CanGrow>true</CanGrow>
+											<Paragraphs>
+												<Paragraph>
+													<TextRuns>
+														<TextRun>
+															<Value>Cliente</Value>
+															<Style>
+																<FontFamily>Segoe UI</FontFamily>
+																<FontSize>9pt</FontSize>
+																<FontWeight>Bold</FontWeight>
+																<Color>White</Color>
+															</Style>
+														</TextRun>
+													</TextRuns>
+													<Style>
+														<TextAlign>Center</TextAlign>
+													</Style>
+												</Paragraph>
+											</Paragraphs>
+											<Style>
+												<BackgroundColor>#2980B9</BackgroundColor>
+												<Border>
+													<Color>#1A5276</Color>
+													<Style>Solid</Style>
+												</Border>
+												<PaddingLeft>4pt</PaddingLeft>
+												<PaddingRight>4pt</PaddingRight>
+												<PaddingTop>3pt</PaddingTop>
+												<PaddingBottom>3pt</PaddingBottom>
+											</Style>
+										</Textbox>
+									</CellContents>
+								</TablixCell>
+
+								<TablixCell>
+									<CellContents>
+										<Textbox Name="H_Cancha">
+											<CanGrow>true</CanGrow>
+											<Paragraphs>
+												<Paragraph>
+													<TextRuns>
+														<TextRun>
+															<Value>Cancha</Value>
+															<Style>
+																<FontFamily>Segoe UI</FontFamily>
+																<FontSize>9pt</FontSize>
+																<FontWeight>Bold</FontWeight>
+																<Color>White</Color>
+															</Style>
+														</TextRun>
+													</TextRuns>
+													<Style>
+														<TextAlign>Center</TextAlign>
+													</Style>
+												</Paragraph>
+											</Paragraphs>
+											<Style>
+												<BackgroundColor>#2980B9</BackgroundColor>
+												<Border>
+													<Color>#1A5276</Color>
+													<Style>Solid</Style>
+												</Border>
+												<PaddingLeft>4pt</PaddingLeft>
+												<PaddingRight>4pt</PaddingRight>
+												<PaddingTop>3pt</PaddingTop>
+												<PaddingBottom>3pt</PaddingBottom>
+											</Style>
+										</Textbox>
+									</CellContents>
+								</TablixCell>
+
+								<TablixCell>
+									<CellContents>
+										<Textbox Name="H_HoraInicio">
+											<CanGrow>true</CanGrow>
+											<Paragraphs>
+												<Paragraph>
+													<TextRuns>
+														<TextRun>
+															<Value>Hora Inicio</Value>
+															<Style>
+																<FontFamily>Segoe UI</FontFamily>
+																<FontSize>9pt</FontSize>
+																<FontWeight>Bold</FontWeight>
+																<Color>White</Color>
+															</Style>
+														</TextRun>
+													</TextRuns>
+													<Style>
+														<TextAlign>Center</TextAlign>
+													</Style>
+												</Paragraph>
+											</Paragraphs>
+											<Style>
+												<BackgroundColor>#2980B9</BackgroundColor>
+												<Border>
+													<Color>#1A5276</Color>
+													<Style>Solid</Style>
+												</Border>
+												<PaddingLeft>4pt</PaddingLeft>
+												<PaddingRight>4pt</PaddingRight>
+												<PaddingTop>3pt</PaddingTop>
+												<PaddingBottom>3pt</PaddingBottom>
+											</Style>
+										</Textbox>
+									</CellContents>
+								</TablixCell>
+
+								<TablixCell>
+									<CellContents>
+										<Textbox Name="H_HoraFin">
+											<CanGrow>true</CanGrow>
+											<Paragraphs>
+												<Paragraph>
+													<TextRuns>
+														<TextRun>
+															<Value>Hora Fin</Value>
+															<Style>
+																<FontFamily>Segoe UI</FontFamily>
+																<FontSize>9pt</FontSize>
+																<FontWeight>Bold</FontWeight>
+																<Color>White</Color>
+															</Style>
+														</TextRun>
+													</TextRuns>
+													<Style>
+														<TextAlign>Center</TextAlign>
+													</Style>
+												</Paragraph>
+											</Paragraphs>
+											<Style>
+												<BackgroundColor>#2980B9</BackgroundColor>
+												<Border>
+													<Color>#1A5276</Color>
+													<Style>Solid</Style>
+												</Border>
+												<PaddingLeft>4pt</PaddingLeft>
+												<PaddingRight>4pt</PaddingRight>
+												<PaddingTop>3pt</PaddingTop>
+												<PaddingBottom>3pt</PaddingBottom>
+											</Style>
+										</Textbox>
+									</CellContents>
+								</TablixCell>
+
+								<TablixCell>
+									<CellContents>
+										<Textbox Name="H_FechaReserva">
+											<CanGrow>true</CanGrow>
+											<Paragraphs>
+												<Paragraph>
+													<TextRuns>
+														<TextRun>
+															<Value>Fecha Reserva</Value>
+															<Style>
+																<FontFamily>Segoe UI</FontFamily>
+																<FontSize>9pt</FontSize>
+																<FontWeight>Bold</FontWeight>
+																<Color>White</Color>
+															</Style>
+														</TextRun>
+													</TextRuns>
+													<Style>
+														<TextAlign>Center</TextAlign>
+													</Style>
+												</Paragraph>
+											</Paragraphs>
+											<Style>
+												<BackgroundColor>#2980B9</BackgroundColor>
+												<Border>
+													<Color>#1A5276</Color>
+													<Style>Solid</Style>
+												</Border>
+												<PaddingLeft>4pt</PaddingLeft>
+												<PaddingRight>4pt</PaddingRight>
+												<PaddingTop>3pt</PaddingTop>
+												<PaddingBottom>3pt</PaddingBottom>
+											</Style>
+										</Textbox>
+									</CellContents>
+								</TablixCell>
+
+								<TablixCell>
+									<CellContents>
+										<Textbox Name="H_Monto">
+											<CanGrow>true</CanGrow>
+											<Paragraphs>
+												<Paragraph>
+													<TextRuns>
+														<TextRun>
+															<Value>Monto</Value>
+															<Style>
+																<FontFamily>Segoe UI</FontFamily>
+																<FontSize>9pt</FontSize>
+																<FontWeight>Bold</FontWeight>
+																<Color>White</Color>
+															</Style>
+														</TextRun>
+													</TextRuns>
+													<Style>
+														<TextAlign>Center</TextAlign>
+													</Style>
+												</Paragraph>
+											</Paragraphs>
+											<Style>
+												<BackgroundColor>#2980B9</BackgroundColor>
+												<Border>
+													<Color>#1A5276</Color>
+													<Style>Solid</Style>
+												</Border>
+												<PaddingLeft>4pt</PaddingLeft>
+												<PaddingRight>4pt</PaddingRight>
+												<PaddingTop>3pt</PaddingTop>
+												<PaddingBottom>3pt</PaddingBottom>
+											</Style>
+										</Textbox>
+									</CellContents>
+								</TablixCell>
+
+								<TablixCell>
+									<CellContents>
+										<Textbox Name="H_Estado">
+											<CanGrow>true</CanGrow>
+											<Paragraphs>
+												<Paragraph>
+													<TextRuns>
+														<TextRun>
+															<Value>Estado</Value>
+															<Style>
+																<FontFamily>Segoe UI</FontFamily>
+																<FontSize>9pt</FontSize>
+																<FontWeight>Bold</FontWeight>
+																<Color>White</Color>
+															</Style>
+														</TextRun>
+													</TextRuns>
+													<Style>
+														<TextAlign>Center</TextAlign>
+													</Style>
+												</Paragraph>
+											</Paragraphs>
+											<Style>
+												<BackgroundColor>#2980B9</BackgroundColor>
+												<Border>
+													<Color>#1A5276</Color>
+													<Style>Solid</Style>
+												</Border>
+												<PaddingLeft>4pt</PaddingLeft>
+												<PaddingRight>4pt</PaddingRight>
+												<PaddingTop>3pt</PaddingTop>
+												<PaddingBottom>3pt</PaddingBottom>
+											</Style>
+										</Textbox>
+									</CellContents>
+								</TablixCell>
+
+							</TablixCells>
+						</TablixRow>
+
+						<!-- DATOS -->
+						<TablixRow>
+							<Height>0.6cm</Height>
+							<TablixCells>
+
+								<TablixCell>
+									<CellContents>
+										<Textbox Name="Cliente">
+											<CanGrow>true</CanGrow>
+											<Paragraphs>
+												<Paragraph>
+													<TextRuns>
+														<TextRun>
+															<Value>=Fields!Cliente.Value</Value>
+															<Style>
+																<FontFamily>Segoe UI</FontFamily>
+																<FontSize>8pt</FontSize>
+															</Style>
+														</TextRun>
+													</TextRuns>
+													<Style>
+														<TextAlign>Center</TextAlign>
+													</Style>
+												</Paragraph>
+											</Paragraphs>
+											<Style>
+												<BackgroundColor>=Iif(RowNumber(Nothing) Mod 2 = 0, "#D6EAF8", "White")</BackgroundColor>
+												<Border>
+													<Color>#AED6F1</Color>
+													<Style>Solid</Style>
+												</Border>
+												<PaddingLeft>4pt</PaddingLeft>
+												<PaddingRight>4pt</PaddingRight>
+												<PaddingTop>2pt</PaddingTop>
+												<PaddingBottom>2pt</PaddingBottom>
+											</Style>
+										</Textbox>
+									</CellContents>
+								</TablixCell>
+
+								<TablixCell>
+									<CellContents>
+										<Textbox Name="Cancha">
+											<CanGrow>true</CanGrow>
+											<Paragraphs>
+												<Paragraph>
+													<TextRuns>
+														<TextRun>
+															<Value>=Fields!Cancha.Value</Value>
+															<Style>
+																<FontFamily>Segoe UI</FontFamily>
+																<FontSize>8pt</FontSize>
+															</Style>
+														</TextRun>
+													</TextRuns>
+													<Style>
+														<TextAlign>Center</TextAlign>
+													</Style>
+												</Paragraph>
+											</Paragraphs>
+											<Style>
+												<BackgroundColor>=Iif(RowNumber(Nothing) Mod 2 = 0, "#D6EAF8", "White")</BackgroundColor>
+												<Border>
+													<Color>#AED6F1</Color>
+													<Style>Solid</Style>
+												</Border>
+												<PaddingLeft>4pt</PaddingLeft>
+												<PaddingRight>4pt</PaddingRight>
+												<PaddingTop>2pt</PaddingTop>
+												<PaddingBottom>2pt</PaddingBottom>
+											</Style>
+										</Textbox>
+									</CellContents>
+								</TablixCell>
+
+								<TablixCell>
+									<CellContents>
+										<Textbox Name="HoraInicio">
+											<CanGrow>true</CanGrow>
+											<Paragraphs>
+												<Paragraph>
+													<TextRuns>
+														<TextRun>
+															<Value>=Fields!HoraInicio.Value</Value>
+															<Style>
+																<FontFamily>Segoe UI</FontFamily>
+																<FontSize>8pt</FontSize>
+															</Style>
+														</TextRun>
+													</TextRuns>
+													<Style>
+														<TextAlign>Center</TextAlign>
+													</Style>
+												</Paragraph>
+											</Paragraphs>
+											<Style>
+												<BackgroundColor>=Iif(RowNumber(Nothing) Mod 2 = 0, "#D6EAF8", "White")</BackgroundColor>
+												<Border>
+													<Color>#AED6F1</Color>
+													<Style>Solid</Style>
+												</Border>
+												<PaddingLeft>4pt</PaddingLeft>
+												<PaddingRight>4pt</PaddingRight>
+												<PaddingTop>2pt</PaddingTop>
+												<PaddingBottom>2pt</PaddingBottom>
+											</Style>
+										</Textbox>
+									</CellContents>
+								</TablixCell>
+
+								<TablixCell>
+									<CellContents>
+										<Textbox Name="HoraFin">
+											<CanGrow>true</CanGrow>
+											<Paragraphs>
+												<Paragraph>
+													<TextRuns>
+														<TextRun>
+															<Value>=Fields!HoraFin.Value</Value>
+															<Style>
+																<FontFamily>Segoe UI</FontFamily>
+																<FontSize>8pt</FontSize>
+															</Style>
+														</TextRun>
+													</TextRuns>
+													<Style>
+														<TextAlign>Center</TextAlign>
+													</Style>
+												</Paragraph>
+											</Paragraphs>
+											<Style>
+												<BackgroundColor>=Iif(RowNumber(Nothing) Mod 2 = 0, "#D6EAF8", "White")</BackgroundColor>
+												<Border>
+													<Color>#AED6F1</Color>
+													<Style>Solid</Style>
+												</Border>
+												<PaddingLeft>4pt</PaddingLeft>
+												<PaddingRight>4pt</PaddingRight>
+												<PaddingTop>2pt</PaddingTop>
+												<PaddingBottom>2pt</PaddingBottom>
+											</Style>
+										</Textbox>
+									</CellContents>
+								</TablixCell>
+
+								<TablixCell>
+									<CellContents>
+										<Textbox Name="FechaReserva">
+											<CanGrow>true</CanGrow>
+											<Paragraphs>
+												<Paragraph>
+													<TextRuns>
+														<TextRun>
+															<Value>=Format(Fields!FechaReserva.Value, "dd/MM/yy")</Value>
+															<Style>
+																<FontFamily>Segoe UI</FontFamily>
+																<FontSize>8pt</FontSize>
+															</Style>
+														</TextRun>
+													</TextRuns>
+													<Style>
+														<TextAlign>Center</TextAlign>
+													</Style>
+												</Paragraph>
+											</Paragraphs>
+											<Style>
+												<BackgroundColor>=Iif(RowNumber(Nothing) Mod 2 = 0, "#D6EAF8", "White")</BackgroundColor>
+												<Border>
+													<Color>#AED6F1</Color>
+													<Style>Solid</Style>
+												</Border>
+												<PaddingLeft>4pt</PaddingLeft>
+												<PaddingRight>4pt</PaddingRight>
+												<PaddingTop>2pt</PaddingTop>
+												<PaddingBottom>2pt</PaddingBottom>
+											</Style>
+										</Textbox>
+									</CellContents>
+								</TablixCell>
+
+								<TablixCell>
+									<CellContents>
+										<Textbox Name="Monto">
+											<CanGrow>true</CanGrow>
+											<Paragraphs>
+												<Paragraph>
+													<TextRuns>
+														<TextRun>
+															<Value>="Q " &amp; Format(Fields!Monto.Value, "0.00")</Value>
+															<Style>
+																<FontFamily>Segoe UI</FontFamily>
+																<FontSize>8pt</FontSize>
+															</Style>
+														</TextRun>
+													</TextRuns>
+													<Style>
+														<TextAlign>Right</TextAlign>
+													</Style>
+												</Paragraph>
+											</Paragraphs>
+											<Style>
+												<BackgroundColor>=Iif(RowNumber(Nothing) Mod 2 = 0, "#D6EAF8", "White")</BackgroundColor>
+												<Border>
+													<Color>#AED6F1</Color>
+													<Style>Solid</Style>
+												</Border>
+												<PaddingLeft>4pt</PaddingLeft>
+												<PaddingRight>4pt</PaddingRight>
+												<PaddingTop>2pt</PaddingTop>
+												<PaddingBottom>2pt</PaddingBottom>
+											</Style>
+										</Textbox>
+									</CellContents>
+								</TablixCell>
+
+								<TablixCell>
+									<CellContents>
+										<Textbox Name="Estado">
+											<CanGrow>true</CanGrow>
+											<Paragraphs>
+												<Paragraph>
+													<TextRuns>
+														<TextRun>
+															<Value>=Fields!Estado.Value</Value>
+															<Style>
+																<FontFamily>Segoe UI</FontFamily>
+																<FontSize>8pt</FontSize>
+																<FontWeight>Bold</FontWeight>
+																<Color>=Iif(Fields!Estado.Value = "Confirmada", "#1A7A4A", "#C0392B")</Color>
+															</Style>
+														</TextRun>
+													</TextRuns>
+													<Style>
+														<TextAlign>Center</TextAlign>
+													</Style>
+												</Paragraph>
+											</Paragraphs>
+											<Style>
+												<BackgroundColor>=Iif(RowNumber(Nothing) Mod 2 = 0, "#D6EAF8", "White")</BackgroundColor>
+												<Border>
+													<Color>#AED6F1</Color>
+													<Style>Solid</Style>
+												</Border>
+												<PaddingLeft>4pt</PaddingLeft>
+												<PaddingRight>4pt</PaddingRight>
+												<PaddingTop>2pt</PaddingTop>
+												<PaddingBottom>2pt</PaddingBottom>
+											</Style>
+										</Textbox>
+									</CellContents>
+								</TablixCell>
+
+							</TablixCells>
+						</TablixRow>
+
+					</TablixRows>
+				</TablixBody>
+				<TablixColumnHierarchy>
+					<TablixMembers>
+						<TablixMember />
+						<TablixMember />
+						<TablixMember />
+						<TablixMember />
+						<TablixMember />
+						<TablixMember />
+						<TablixMember />
+					</TablixMembers>
+				</TablixColumnHierarchy>
+				<TablixRowHierarchy>
+					<TablixMembers>
+						<TablixMember>
+							<KeepWithGroup>After</KeepWithGroup>
+						</TablixMember>
+						<TablixMember>
+							<Group Name="Detalles" />
+						</TablixMember>
+					</TablixMembers>
+				</TablixRowHierarchy>
+				<DataSetName>DataSet1</DataSetName>
+				<Top>2cm</Top>
+				<Left>0cm</Left>
+				<Height>1.3cm</Height>
+				<Width>21cm</Width>
+				<Style>
+					<Border>
+						<Style>None</Style>
+					</Border>
+				</Style>
+			</Tablix>
+
+		</ReportItems>
+		<Height>12cm</Height>
+		<Style>
+			<BackgroundColor>White</BackgroundColor>
+		</Style>
+	</Body>
+	<Width>21cm</Width>
+	<Page>
+		<PageHeight>29.7cm</PageHeight>
+		<PageWidth>21cm</PageWidth>
+		<LeftMargin>0cm</LeftMargin>
+		<RightMargin>0cm</RightMargin>
+		<TopMargin>1cm</TopMargin>
+		<BottomMargin>1cm</BottomMargin>
+		<Style />
+	</Page>
+	<rd:ReportUnitType>Cm</rd:ReportUnitType>
+</Report>

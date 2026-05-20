@@ -7,8 +7,14 @@ namespace SistemaReservaciones
     {
         public frmPrincipal()
         {
-            InitializeComponent();
-            lblBienvenida.Text = $"Bienvenido, {Sesion.Nombre}  |  Rol: {Sesion.Rol}";
+            InitializeComponent(); // Carga todo lo que se diseña en el Visual Studio se crea aquí.
+            lblBienvenida.Text = $"Bienvenido, {Sesion.Nombre}  |  Rol: {Sesion.Rol}"; //se llama interpolarización de cadenas, se muestra el nombre del usuario y su rol en la etiqueta de bienvenida.
+
+            // SOLO ADMIN VE REPORTERÍA
+            if (Sesion.Rol != "Administrador")
+            {
+                mnuReporteria.Visible = false;
+            }
         }
 
         private void mnuTiposCancha_Click(object sender, EventArgs e)
@@ -43,11 +49,25 @@ namespace SistemaReservaciones
 
         private void mnuSalir_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Desea cerrar sesión?", "Salir",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            DialogResult resultado = MessageBox.Show(
+                "¿Está seguro que desea cerrar sesión?",
+                "Cerrar Sesión",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (resultado == DialogResult.Yes)
             {
-                Application.Exit();
+                new frmLogin().Show();
+                this.Close();
             }
+        }
+
+        private void reporteReservasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReporteReservas frm =
+    new frmReporteReservas();
+
+            frm.ShowDialog();
         }
     }
 }
